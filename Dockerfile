@@ -17,6 +17,9 @@ RUN a2enmod rewrite
 # Set working directory di container
 WORKDIR /var/www/html
 
+# Set Apache DocumentRoot ke public/
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
+
 # Copy seluruh project ke container
 COPY . /var/www/html
 
