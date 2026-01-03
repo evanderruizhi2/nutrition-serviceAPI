@@ -6,4 +6,8 @@ services:
     container_name: nutrition_service_evander
     ports:
       - "8085:80"
+    environment:
+      CI_ENVIRONMENT: development
+      APP_BASEURL: "http://localhost:8085/"
+      JWT_SECRET: "supersecretkey1234567890supersecretkey"
     restart: always
