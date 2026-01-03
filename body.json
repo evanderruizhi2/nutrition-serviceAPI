@@ -1,0 +1,12 @@
+{
+  "age": 45,
+  "weight": 82,
+  "height": 168,
+  "gender": "female",
+  "activity_level": "moderate",
+  "conditions": {
+    "diabetes": true,
+    "hypertension": true,
+    "heart_disease": false
+  }
+}

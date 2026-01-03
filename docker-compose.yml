@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  nutrition-service:
+    build: .
+    container_name: nutrition_service
+    ports:
+      - "8080:80"
+    restart: always
