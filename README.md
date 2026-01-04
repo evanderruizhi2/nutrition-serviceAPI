@@ -93,11 +93,11 @@ JWT_SECRET = supersecretkey1234567890supersecretkey
 Environment sebenarnya sudah dikonfigurasi pada docker-compose dan secara otomatis di-build saat menjalankan microservice sehingga tidak perlu membuat file ```.env``` lagi (tetapi konfigurasi environment diatas dapat digunakan apabila tidak di-build otomatis)
 
 ### G. Daftar Endpoint API
-| Method | Endpoint                     | Deskripsi                             | Autentikasi  |
-| ------ | ---------------------------- | ------------------------------------- | ----- |
-| GET    | `/api/ping`                  | API check untuk menguji keaktifan API | -     |
-| POST   | `/api/login`                 | Autentikasi pengguna dan generate JWT | -     |
-| POST   | `/api/nutrition/constraints` | Mengolah kebutuhan nutrisi pengguna   | JWT |
+| Method | Endpoint                          | Deskripsi                             | Autentikasi  |
+| ------ | --------------------------------- | ------------------------------------- | ------------ |
+| GET    | `/api/ping`                       | API check untuk menguji keaktifan API | -            |
+| POST   | `/api/login`                      | Autentikasi pengguna dan generate JWT | -            |
+| POST   | `/api/nutrition/constraints`      | Mengolah kebutuhan nutrisi pengguna   | JWT          |
 
 ### H.Cara Menjalankan Microservice dan Deployment pada STB dengan Docker
 1. Clone Repository pada STB
@@ -128,11 +128,11 @@ Contoh output jika berjalan:
 0.0.0.0:8085 -> 80/tcp
 ```
 ### I. Cara Menggunakan API Microservice
-| Method | Endpoint                     | Contoh Request                            | Contoh Response  |
-| ------ | ---------------------------- | ------------------------------------- | ----- |
-| GET    | `/api/ping`                  | ```curl http://localhost:8085/api/ping```  | ``` {"status": "ok"} ```     |
-| POST   | `/api/login`                 | ```curl -X POST http://localhost:8085/api/login``` | ``` {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."} ```     |
-| POST   | `/api/nutrition/constraints` | ```curl -X POST http://localhost:8085/api/nutrition/constraints -H "Authorization: Bearer <JWT_Token>" -H "Content-Type: application/json" --data-binary "@body.json"```  | terlampir |
+| Method | Endpoint                                   | Contoh Request                            | Contoh Response  |
+| ------ | ------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| GET    | `/api/ping`                                | ```curl http://localhost:8085/api/ping```                                   | ``` {"status": "ok"} ```                                          |
+| POST   | `/api/login`                               | ```curl -X POST http://localhost:8085/api/login```                          | ``` {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."} ```                |
+| POST   | `/api/nutrition/constraints`               | ```curl -X POST http://localhost:8085/api/nutrition/constraints -H "Authorization: Bearer <JWT_Token>" -H "Content-Type: application/json" --data-binary "@body.json"```  | terlampir |
 
 untuk menggunakan endpoint API `/api/nutrition/constraints` disarankan membuat dan menggunakan `body.json` agar sintaks lebih mudah untuk dieksekusi. berikut contoh isi dari `body.json`
 ```
