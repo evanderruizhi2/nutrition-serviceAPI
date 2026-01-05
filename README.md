@@ -137,7 +137,7 @@ Contoh output jika berjalan:
 untuk menggunakan endpoint API `/api/nutrition/constraints` disarankan membuat dan menggunakan `body.json` agar sintaks lebih mudah untuk dieksekusi. berikut contoh isi dari `body.json`
 ```
 {
-  "age": 45, \\ wajib
+  "age": 45,
   "weight": 82,
   "height": 168,
   "gender": "female",
