@@ -130,14 +130,14 @@ Contoh output jika berjalan:
 ### I. Cara Menggunakan API Microservice
 | Method | Endpoint                                   | Contoh Request                            | Contoh Response  |
 | ------ | ------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| GET    | `/api/ping`                                | ```curl http://localhost:8085/api/ping```                                   | ``` {"status": "ok"} ```                                          |
-| POST   | `/api/login`                               | ```curl -X POST http://localhost:8085/api/login```                          | ``` {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."} ```                |
-| POST   | `/api/nutrition/constraints`               | ```curl -X POST http://localhost:8085/api/nutrition/constraints -H "Authorization: Bearer <JWT_Token>" -H "Content-Type: application/json" --data-binary "@body.json"```  | terlampir |
+| GET    | `/api/ping`                                | ```curl https://evanrzh.theokaitou.my.id/api/ping```                                   | ``` {"status": "ok"} ```                                          |
+| POST   | `/api/login`                               | ```curl -X POST https://evanrzh.theokaitou.my.id/api/login```                          | ``` {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."} ```                |
+| POST   | `/api/nutrition/constraints`               | ```curl -X POST https://evanrzh.theokaitou.my.id/api/nutrition/constraints -H "Authorization: Bearer <JWT_Token>" -H "Content-Type: application/json" --data-binary "@body.json"```  | terlampir |
 
 untuk menggunakan endpoint API `/api/nutrition/constraints` disarankan membuat dan menggunakan `body.json` agar sintaks lebih mudah untuk dieksekusi. berikut contoh isi dari `body.json`
 ```
 {
-  "age": 45,
+  "age": 45, \\ wajib
   "weight": 82,
   "height": 168,
   "gender": "female",
@@ -149,6 +149,14 @@ untuk menggunakan endpoint API `/api/nutrition/constraints` disarankan membuat d
   }
 }
 ```
+- age merupakan umur dalam tahun
+- weight merupakan berat badan dalam kg
+- height merupakan tinggi badan dalam cm
+- gender merupakan jenis kelamin (diisi dengan male/female)
+- activity_level merupakan tingkat intensitas aktivitas fisik (default value sedentary, dapat diisi dengan light/moderate/active)
+- conditions berisi riwayat penyakit (diabetes, hipertensi, penyakit jantung)
+- age sampai gender wajib diisi, sisanya opsional
+
 berikut adalah contoh response untuk endpoint API `/api/nutrition/constraints` menggunakan input dari `body.json`
 ```
 {
